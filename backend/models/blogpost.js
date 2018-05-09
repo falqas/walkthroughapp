@@ -7,3 +7,12 @@ mongoose.connect("mongodb://localhost/blogPostApp", {
 })
   .then(() => console.log('Mongodb connected...'))
   .catch(err => console.log(err));
+
+var BlogPostSchema = new Schema({
+	title: String, 
+	content: String
+});
+
+var BlogPost = mongoose.model('BlogPost', BlogPostSchema);
+
+module.exports = BlogPost;
