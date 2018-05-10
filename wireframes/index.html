@@ -1,2 +1,11 @@
 <link rel="stylesheet" href="styles.css">
 <h1> Welcome to my blog app, friend</h1>
+<script>
+    fetch('http://localhost:3000/blogposts')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (json) {
+            console.log(json);
+        });
+</script>
