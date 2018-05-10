@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import coolerLogo from './internet_logo.jpg';
 import './App.css';
+import FormComponent from './FormComponent';
 
 class App extends Component {
   constructor() {
@@ -76,15 +77,8 @@ class App extends Component {
 
         {blogPosts}
 
-        <div className="App-intro">
-          <br />
-          Add a new post, why not.
-        <form onSubmit={this.createPost}>
-            <br />Title <input name="title" value={this.state.title} onChange={this.handleTitleChange} type="text" />
-            <br />Content <input name="content" value={this.state.content} onChange={this.handleContentChange} type="text" />
-            <br /><button type="submit">Create post!</button>
-          </form>
-        </div>
+        <FormComponent handleContentChange={this.handleContentChange} handleTitleChange={this.handleTitleChange} title={this.state.title} content={this.state.content} createPost={this.createPost} />
+
       </div>
     );
   }
