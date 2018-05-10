@@ -7,5 +7,17 @@
         })
         .then(function (json) {
             console.log(json);
-        });
+
+            function renderToDom(someJsonData) {
+                for (let i = 0; i < someJsonData.length; i++) {
+                    let currentData = someJsonData[i];
+                    let div = document.createElement('div');
+                    div.innerHTML = currentData.title + ': ' + currentData.content;
+                    document.body.appendChild(div);
+                }
+            }
+
+            renderToDom(json);
+
+        })
 </script>
