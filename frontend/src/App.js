@@ -56,6 +56,17 @@ class App extends Component {
   }
 
   render() {
+
+    let blogPosts = this.state.blogPosts;
+
+    if (blogPosts === null) {
+      blogPosts = <div>Loading...</div>
+    } else {
+      blogPosts = blogPosts.map(item => {
+        return <div key={item._id}>{item.title}: {item.content}</div>
+      })
+    }
+
     return (
       <div className="App">
         <header className="App-header">
@@ -63,7 +74,10 @@ class App extends Component {
           <h1 className="App-title">Welcome to my blog app, friend</h1>
         </header>
 
+        {blogPosts}
+
         <div className="App-intro">
+          <br />
           Add a new post, why not.
         <form onSubmit={this.createPost}>
             <br />Title <input name="title" value={this.state.title} onChange={this.handleTitleChange} type="text" />
