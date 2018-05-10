@@ -36,7 +36,22 @@ class App extends Component {
   createPost = (event) => {
     event.preventDefault();
     console.log('form submit!');
-    console.log(this.state);
+    fetch('http://localhost:3000/blogposts', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        title: this.state.title,
+        content: this.state.content
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+      })
+      .catch(err => console.log(err))
   }
 
   render() {
