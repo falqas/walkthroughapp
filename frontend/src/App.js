@@ -3,6 +3,12 @@ import coolerLogo from './internet_logo.jpg';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      blogPosts: null
+    }
+  }
   render() {
     return (
       <div className="App">
