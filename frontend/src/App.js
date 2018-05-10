@@ -23,15 +23,12 @@ class App extends Component {
   }
 
   handleInputChange = (event) => {
-    const value = event.target.value;
     const name = event.target.name;
-    console.log(value, name)
-    if (name === "title") {
-      this.setState({ title: value })
-    } else if (name === "content") {
-      this.setState({ content: value });
-    }
-    console.log(this.state)
+    const value = event.target.value;
+    this.setState({
+      [name]: value
+    });
+    console.log(this.state);
   }
 
   createPost = (event) => {
