@@ -8,8 +8,8 @@ class FormComponent extends Component {
                 <br />
                 Add a new post, why not.
                 <form onSubmit={this.props.createPost}>
-                    <br />Title <input name="title" onChange={this.props.handleTitleChange} type="text" value={this.props.title} />
-                    <br />Content <input name="content" onChange={this.props.handleContentChange} type="text" value={this.props.content} />
+                    <br />Title <input name="title" onChange={this.props.handleInputChange} type="text" value={this.props.title} />
+                    <br />Content <input name="content" onChange={this.props.handleInputChange} type="text" value={this.props.content} />
                     <br /><button type="submit">Create post!</button>
                 </form>
             </div>

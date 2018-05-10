@@ -22,16 +22,16 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  handleContentChange = (event) => {
+  handleInputChange = (event) => {
     const value = event.target.value;
-    this.setState({ content: value });
-    console.log(this.state);
-  }
-
-  handleTitleChange = (event) => {
-    const value = event.target.value;
-    this.setState({ title: value });
-    console.log(this.state);
+    const name = event.target.name;
+    console.log(value, name)
+    if (name === "title") {
+      this.setState({ title: value })
+    } else if (name === "content") {
+      this.setState({ content: value });
+    }
+    console.log(this.state)
   }
 
   createPost = (event) => {
@@ -77,7 +77,7 @@ class App extends Component {
 
         {blogPosts}
 
-        <FormComponent handleContentChange={this.handleContentChange} handleTitleChange={this.handleTitleChange} title={this.state.title} content={this.state.content} createPost={this.createPost} />
+        <FormComponent handleInputChange={this.handleInputChange} title={this.state.title} content={this.state.content} createPost={this.createPost} />
 
       </div>
     );
