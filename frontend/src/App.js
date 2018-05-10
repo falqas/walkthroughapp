@@ -14,7 +14,7 @@ class App extends Component {
       .then(res => res.json())
       .then(blogPosts => {
         this.setState({ blogPosts });
-        console.log(blogPosts);
+        console.log(this.state);
       })
       .catch(err => console.log(err));
   }
@@ -22,13 +22,18 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={coolerLogo} className="App-logo" alt="logo" style={{ width: "150px", height: "150px" }} />
+          <img src={coolerLogo} className="App-logo" alt="logo" style={{ width: "100px", height: "100px" }} />
           <h1 className="App-title">Welcome to my blog app, friend</h1>
         </header>
 
-        <p className="App-intro">
-
-        </p>
+        <div className="App-intro">
+          Add a new post, why not.
+        <form>
+            <br />Title <input type="text" />
+            <br />Content <input type="text" />
+            <br /><button type="submit">Create post!</button>
+          </form>
+        </div>
       </div>
     );
   }
