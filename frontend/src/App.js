@@ -49,7 +49,8 @@ class App extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
+        console.log(data);
+        this.setState({ blogPosts: [...this.state.blogPosts, data] })
       })
       .catch(err => console.log(err))
   }
