@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import coolerLogo from './internet_logo.jpg';
 import './App.css';
 
 class App extends Component {
@@ -7,11 +7,12 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <img src={coolerLogo} className="App-logo" alt="logo" style={{ width: "150px", height: "150px" }} />
+          <h1 className="App-title">Welcome to my blog app, friend</h1>
         </header>
+
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+
         </p>
       </div>
     );
