@@ -25,15 +25,32 @@
 
 <script type="text/javascript">
     function submitFormUsingFetch() {
-        alert('sup')
+        let titleElement = document.getElementById('title');
+        let contentElement = document.getElementById('content');
+        let titleValue = titleElement.value;
+        let contentValue = contentElement.value;
+
+        fetch('http://localhost:3000/blogposts', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                title: titleValue,
+                content: contentValue
+            })
+        });
+        location.reload();
     }
 </script>
+
 <form onsubmit="event.preventDefault(); submitFormUsingFetch();">
     Add a new post, why not.
     <br> Title
-    <input type="text" name="title">
+    <input id="title" type="text" name="title">
     <br> Content
-    <input type="text" name="content">
+    <input id="content" type="text" name="content">
     <br>
     <input type="submit" value="Create post!">
 </form>
