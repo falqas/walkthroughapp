@@ -6,7 +6,9 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      blogPosts: null
+      blogPosts: null,
+      title: '',
+      content: ''
     }
   }
   componentDidMount() {
@@ -18,6 +20,19 @@ class App extends Component {
       })
       .catch(err => console.log(err));
   }
+
+  handleContentChange = (event) => {
+    const value = event.target.value;
+    this.setState({ content: value });
+    console.log(this.state);
+  }
+
+  handleTitleChange = (event) => {
+    const value = event.target.value;
+    this.setState({ title: value });
+    console.log(this.state);
+  }
+
   render() {
     return (
       <div className="App">
@@ -28,9 +43,9 @@ class App extends Component {
 
         <div className="App-intro">
           Add a new post, why not.
-        <form>
-            <br />Title <input type="text" />
-            <br />Content <input type="text" />
+        <form onSubmit={this.createPost}>
+            <br />Title <input name="title" value={this.state.title} onChange={this.handleTitleChange} type="text" />
+            <br />Content <input name="content" value={this.state.content} onChange={this.handleContentChange} type="text" />
             <br /><button type="submit">Create post!</button>
           </form>
         </div>
