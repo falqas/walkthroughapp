@@ -33,6 +33,12 @@ class App extends Component {
     console.log(this.state);
   }
 
+  createPost = (event) => {
+    event.preventDefault();
+    console.log('form submit!');
+    console.log(this.state);
+  }
+
   render() {
     return (
       <div className="App">
