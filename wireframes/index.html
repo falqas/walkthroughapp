@@ -22,3 +22,18 @@
 
         })
 </script>
+
+<script type="text/javascript">
+    function submitFormUsingFetch() {
+        alert('sup')
+    }
+</script>
+<form onsubmit="event.preventDefault(); submitFormUsingFetch();">
+    Add a new post, why not.
+    <br> Title
+    <input type="text" name="title">
+    <br> Content
+    <input type="text" name="content">
+    <br>
+    <input type="submit" value="Create post!">
+</form>
