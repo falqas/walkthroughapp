@@ -9,6 +9,15 @@ class App extends Component {
       blogPosts: null
     }
   }
+  componentDidMount() {
+    fetch('http://localhost:3000/blogposts')
+      .then(res => res.json())
+      .then(blogPosts => {
+        this.setState({ blogPosts });
+        console.log(blogPosts);
+      })
+      .catch(err => console.log(err));
+  }
   render() {
     return (
       <div className="App">
